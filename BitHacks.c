@@ -14,11 +14,29 @@ void print_binary(int ptr);
 int main(){
 	printf("hello, world\n");
 	
-	//set k bit in x to 1
+	//set kth bit in x to 1
 	int x=0b101001011;
-	//set 7bit to 1
-	int x_res=x | (1<<7);
-	print_binary(x_res);
+	//set 7th bit to 1
+	int x_result=x | (1<<7);
+	printf("flip 7th bit of 0b101001011: ");
+	print_binary(x_result);
+	printf("\n");
+	//set 7th bit to 0
+	int x_result_rollback=x_result & ~(1<<7);
+	print_binary(x_result_rollback);
+	printf("\n");
+
+	//toggle kth bit
+	int to_togggle=0b100101100001;
+	//toggle 4th bit
+	printf("toggle 4th bit of 0b100101100001: ");
+
+	int toggled=to_togggle ^ (1<<4);
+	print_binary(toggled);
+	printf("\n");
+	print_binary(toggled ^ (1<<4));
+	
+	//extract bit field
 	return 0;
 }
 
