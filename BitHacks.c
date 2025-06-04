@@ -11,6 +11,7 @@
 // << left shift
 // >> right shit
 void print_binary(int ptr);
+void merge(long* __restrict C,long* __restrict A,long* __restrict B,size_t szA,size_t szB);
 int main(){
 	printf("hello, world\n");
 	int mask, field,x,y;
@@ -63,6 +64,14 @@ int main(){
 	int min=y ^ ((x ^ y) & -(x<y));
 	printf("no branch minimum of 25 & 21:%d\n",min);
 	
+	//merge two sorted array
+	long arr1[]={3,12,19,46};
+	long arr2[]={4,14,21,23};
+	long sorted_arr[8];
+	merge(sorted_arr,arr1,arr2,4,4);
+	for(int t=0;t<8;t++){
+		printf("%d ",sorted_arr[t]);
+	}
 	return 0;
 }
 
@@ -72,4 +81,30 @@ void print_binary(int ptr){
 		int mask=1<<j;
 		printf("%d",mask&ptr?1:0);
 	}
+}
+void merge(long* __restrict C,long* __restrict A,long* __restrict B,size_t szA,size_t szB){
+	while(szA>0 && szB>0){
+		if(*A>*B){
+			*C=*B;
+			B++;
+			szB--;
+		}
+		else{
+			*C=*A;
+			A++;
+			szA--;
+		}
+		C++;
+	}
+	while(szA>0){
+		*C=*A;
+		C++;
+		szA--;
+	}
+	while(szB>0){
+		*C=*B;
+		szB--;
+		C++;
+	}
+	
 }
