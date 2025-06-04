@@ -1,0 +1,2 @@
+The Bit hacks in this repostory consist of the cool bit manipulation tricks I found in the MIT opencourware module ```Performance Engineering of Software Systems
+```. Having shifted my focus from C lang for the better part of the last few years due to the demands of my daily job, I say this is a nice refresher and an extension of my memory of bit manipulations for perfomant software ;)
