@@ -69,7 +69,6 @@ int main(){
 	long arr2[]={4,14,21,23};
 	long sorted_arr[8];
 	printf("merge two sorted arrays with no branch minimum\n");
-
 	merge(sorted_arr,arr1,arr2,4,4);
 	for(int t=0;t<8;t++){
 		printf(" %d ",sorted_arr[t]);
