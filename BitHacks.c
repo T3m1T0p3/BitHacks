@@ -68,9 +68,11 @@ int main(){
 	long arr1[]={3,12,19,46};
 	long arr2[]={4,14,21,23};
 	long sorted_arr[8];
+	printf("merge two sorted arrays with no branch minimum\n");
+
 	merge(sorted_arr,arr1,arr2,4,4);
 	for(int t=0;t<8;t++){
-		printf("%d ",sorted_arr[t]);
+		printf(" %d ",sorted_arr[t]);
 	}
 	return 0;
 }
@@ -95,11 +97,13 @@ void merge(long* __restrict C,long* __restrict A,long* __restrict B,size_t szA,s
 			A++;
 			szA--;
 		}*/
-		int min=*B ^ ((*A^*B) & -(*A<= *B));
-		int inc=*A<=*B;
+		int min= *B ^ ((*A ^ *B) & -(*A <= *B));
+		int inc=*A <= *B;
 		*C=min;
-		 A+=!inc; szA-=!inc;
-		 B+=inc; szB-=inc;
+		A+=inc; 
+		B+=!inc;
+		szA-=inc;
+		szB-=!inc;
 		C++;
 	}
 	while(szA>0){
