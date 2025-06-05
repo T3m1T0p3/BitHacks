@@ -84,7 +84,8 @@ void print_binary(int ptr){
 }
 void merge(long* __restrict C,long* __restrict A,long* __restrict B,size_t szA,size_t szB){
 	while(szA>0 && szB>0){
-		if(*A>*B){
+		//replace with no branch minimum
+		/*if(*A>*B){
 			*C=*B;
 			B++;
 			szB--;
@@ -93,7 +94,12 @@ void merge(long* __restrict C,long* __restrict A,long* __restrict B,size_t szA,s
 			*C=*A;
 			A++;
 			szA--;
-		}
+		}*/
+		int min=*B ^ ((*A^*B) & -(*A<= *B));
+		int inc=*A<=*B;
+		*C=min;
+		 A+=!inc; szA-=!inc;
+		 B+=inc; szB-=inc;
 		C++;
 	}
 	while(szA>0){
