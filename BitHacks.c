@@ -73,6 +73,13 @@ int main(){
 	for(int t=0;t<8;t++){
 		printf(" %d ",sorted_arr[t]);
 	}
+	
+	//modular addition: compute (x+y)%n for x,y<n
+	x=46;
+	y=37;
+	int n=125;
+	printf("\n%d + %d mod n:%d\n",x,y,(x+y)%n);
+	
 	return 0;
 }
 
@@ -96,7 +103,7 @@ void merge(long* __restrict C,long* __restrict A,long* __restrict B,size_t szA,s
 			A++;
 			szA--;
 		}*/
-		int min= *B ^ ((*A ^ *B) & -(*A <= *B));
+		long min= *B ^ ((*A ^ *B) & -(*A <= *B));
 		int inc=*A <= *B;
 		*C=min;
 		A+=inc; 
