@@ -14,7 +14,7 @@ void print_binary(int ptr);
 void merge(long* __restrict C,long* __restrict A,long* __restrict B,size_t szA,size_t szB);
 int main(){
 	printf("hello, world\n");
-	int mask, field,x,y;
+	int mask, field,x,y,n, sum;
 	//set kth bit in x to 1
 	x=0b101001011;
 	//set 7th bit to 1
@@ -77,8 +77,10 @@ int main(){
 	//modular addition: compute (x+y)%n for x,y<n
 	x=46;
 	y=37;
-	int n=125;
-	printf("\n%d + %d mod n:%d\n",x,y,(x+y)%n);
+	n=75;
+	sum=x+y;
+	int rem= sum-(n& -(sum<=n));//sum<n?n:sum-n;
+	printf("\n%d + %d mod %d:%d\n",x,y,n,(x+y)%n);
 	
 	return 0;
 }
