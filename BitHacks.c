@@ -79,8 +79,13 @@ int main(){
 	y=37;
 	n=75;
 	sum=x+y;
-	int rem= sum-(n& -(sum<=n));//sum<n?n:sum-n;
-	printf("\n%d + %d mod %d:%d\n",x,y,n,(x+y)%n);
+	int rem= sum-(n& -(sum>=n));//sum<n?n:sum-n;
+	printf("\n%d + %d mod %d:%d\n",x,y,n,rem);
+	
+	//compute the mask of the LSB in word x
+	x=0b0110100101100;
+	int neg_x=-x ;//0b1001011010100
+	printf("mask of the lsb in 0b0110100101100:%d\n",x&neg_x);
 	
 	return 0;
 }
