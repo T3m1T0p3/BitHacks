@@ -10,6 +10,7 @@
 // ~ not (two's complement)
 // << left shift
 // >> right shit
+// note: if x is a num the x-1 will flip the LSB and all bits to the right of the LSB
 void print_binary(int ptr);
 void merge(long* __restrict C,long* __restrict A,long* __restrict B,size_t szA,size_t szB);
 int main(){
@@ -86,7 +87,12 @@ int main(){
 	x=0b0110100101100;
 	int neg_x=-x ;//0b1001011010100
 	printf("mask of the lsb in 0b0110100101100:%d\n",x&neg_x);
-	
+	//count the number of 1's in x
+	x=0b0000011110000000;
+	sum=0;
+	for(n=0;x!=0;sum++)
+		x&=(x-1);
+	printf("number of 1's in 0b0000011110000000: %d\n",sum);
 	return 0;
 }
 
